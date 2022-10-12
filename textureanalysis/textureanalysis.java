@@ -12,14 +12,15 @@ public class textureanalysis {
         int num = 1;
         while(!line.equals("END")){
             int gaps = line.indexOf("*", 1);
-
             
             String[] line2 = line.split("");
             boolean even = true;
+            StringBuilder out = new StringBuilder();
             if(gaps == -1){
-                System.out.println(num + " EVEN");
+                out.append(num).append(" EVEN");
                 line = in.readLine().strip();
                 num++;
+                System.out.println(out);
                 continue;
             }
             for (int i = 1; i < line2.length; i++) {
@@ -28,10 +29,11 @@ public class textureanalysis {
                     break;
                 }
             }
-            if(even){ System.out.println(num+" EVEN");}
-            else { System.out.println(num+" NOT EVEN");}
+            if(even){ out.append(num).append(" EVEN");}
+            else { out.append(num).append(" NOT EVEN");}
             line = in.readLine().strip();
             num++;
+            System.out.println(out);
         }
     }
 }
